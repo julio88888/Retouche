@@ -3,9 +3,10 @@ import torch
 import numpy as np
 from torch import nn
 from torch.utils.data import DataLoader
-from model import RatingPredictor
-from dataset import RatingDataset
-from data_preparation import load_and_prepare_data
+from model_scoring.model import RatingPredictor
+from model_scoring.dataset import RatingDataset
+from model_scoring.data_preparation import load_and_prepare_data
+
 
 def main(args):
     data = load_and_prepare_data(args.csv_file)
