@@ -68,7 +68,7 @@ def save_generated_image(tensor, filename):
     Image.fromarray(img).save(filename)
 
 
-def image_to_latent(target_image, generator, num_steps=3000, learning_rate=0.075,
+def image_to_latent(target_image, generator, num_steps=1600, learning_rate=0.10,
                     latent_dim=512, checkpoint_dir='checkpoints', checkpoint_interval=200):
     os.makedirs(checkpoint_dir, exist_ok=True)
     z = torch.randn(1, latent_dim, requires_grad=True, device=device)
