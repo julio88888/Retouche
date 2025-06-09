@@ -1,8 +1,8 @@
 import torch
 import torch.optim as optim
 
-def optimize_latent_vector(score_model, latent_vector_init, n_iterations=100, learning_rate=0.01):
-    latent_vector = torch.tensor(latent_vector_init, dtype=torch.float32, requires_grad=True)
+def optimize_latent_vector(score_model, device, latent_vector_init, n_iterations=100, learning_rate=0.01):
+    latent_vector = latent_vector_init.clone().detach().to(device).requires_grad_(True)
     optimizer = optim.Adam([latent_vector], lr=learning_rate)
 
     for i in range(n_iterations):
